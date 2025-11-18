@@ -39,6 +39,11 @@ class DashboardFragment : Fragment() {
     private lateinit var selectImageButton: Button
     private lateinit var databaseReference: DatabaseReference
     private lateinit var auth: FirebaseAuth
+    private lateinit var descricaoEditText: EditText
+    private lateinit var dataEditText: EditText
+    private lateinit var categoriaEditText: EditText
+    private lateinit var quantidadeEditText: EditText
+
 
     companion object {
         private const val PICK_IMAGE_REQUEST = 1
@@ -66,6 +71,11 @@ class DashboardFragment : Fragment() {
         salvarButton = view.findViewById(R.id.salvarItemButton)
         selectImageButton = view.findViewById(R.id.button_select_image)
         enderecoEditText = view.findViewById(R.id.enderecoItemEditText)
+        descricaoEditText = view.findViewById(R.id.descricaoItemEditText)
+        dataEditText = view.findViewById(R.id.dataItemEditText)
+        categoriaEditText = view.findViewById(R.id.categoriaItemEditText)
+        quantidadeEditText = view.findViewById(R.id.quantidadeItemEditText)
+
         //TODO("Capture aqui os outro campos que foram inseridos no layout. Por exemplo, ate
         // o momento so foi capturado o endereco (EditText)")
 
@@ -97,6 +107,11 @@ class DashboardFragment : Fragment() {
     private fun salvarItem() {
         //TODO("Capture aqui o conteudo que esta nos outros editTexts que foram criados")
         val endereco = enderecoEditText.text.toString().trim()
+        val descricao = descricaoEditText.text.toString().trim()
+        val data = dataEditText.text.toString().trim()
+        val categoria = categoriaEditText.text.toString().trim()
+        val quantidade = quantidadeEditText.text.toString().trim().toIntOrNull()
+
 
         if (endereco.isEmpty() || imageUri == null) {
             Toast.makeText(context, "Por favor, preencha todos os campos", Toast.LENGTH_SHORT)
@@ -116,6 +131,11 @@ class DashboardFragment : Fragment() {
             if (bytes != null) {
                 val base64Image = Base64.encodeToString(bytes, Base64.DEFAULT)
                 val endereco = enderecoEditText.text.toString().trim()
+                val descricao = descricaoEditText.text.toString().trim()
+                val data = dataEditText.text.toString().trim()
+                val categoria = categoriaEditText.text.toString().trim()
+                val quantidade = quantidadeEditText.text.toString().trim().toIntOrNull()
+
                 //TODO("Capture aqui o conteudo que esta nos outros editTexts que foram criados")
 
                 val item = Item(endereco, base64Image)
