@@ -28,11 +28,38 @@
                 android:id="@+id/item_endereco"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nome:"
+                android:text="Endereço:"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
-            <!-- Campos futuros aqui -->
+            <TextView
+                android:id="@+id/item_descricao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Descrição:"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/item_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Data:"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/item_categoria"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Categoria:"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/item_quantidade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Quantidade:"
+                android:textSize="14sp" />
+
         </LinearLayout>
     </LinearLayout>
 
