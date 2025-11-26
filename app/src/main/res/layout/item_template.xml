@@ -28,9 +28,16 @@
                 android:id="@+id/item_endereco"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Endereço:"
+                android:text="Livraria/Sebo:"
                 android:textSize="16sp"
                 android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/item_titulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Título:"
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/item_descricao"
@@ -58,6 +65,27 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Quantidade:"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/item_autor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Autor(a):"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/item_editora"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Editora:"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/item_preco"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Preço:"
                 android:textSize="14sp" />
 
         </LinearLayout>

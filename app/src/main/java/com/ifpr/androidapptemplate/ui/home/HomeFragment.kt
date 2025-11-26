@@ -76,16 +76,24 @@ class HomeFragment : Fragment() {
 
                         val imageView = itemView.findViewById<ImageView>(R.id.item_image)
                         val enderecoView = itemView.findViewById<TextView>(R.id.item_endereco)
+                        val tituloView = itemView.findViewById<TextView>(R.id.item_titulo)
                         val descricaoView = itemView.findViewById<TextView>(R.id.item_descricao)
                         val dataView = itemView.findViewById<TextView>(R.id.item_data)
                         val categoriaView = itemView.findViewById<TextView>(R.id.item_categoria)
                         val quantidadeView = itemView.findViewById<TextView>(R.id.item_quantidade)
+                        val autorView = itemView.findViewById<TextView>(R.id.item_autor)
+                        val editoraView = itemView.findViewById<TextView>(R.id.item_editora)
+                        val precoView = itemView.findViewById<TextView>(R.id.item_preco)
 
-                        enderecoView.text = "Endereço: ${item.endereco ?: "Não informado"}"
+                        enderecoView.text = "Livraria/Sebo: ${item.endereco ?: "Não informado"}"
+                        tituloView.text = "Título: ${item.titulo ?: "Não informado"}"
                         descricaoView.text = "Descrição: ${item.descricao ?: "Não informado"}"
                         dataView.text = "Data: ${item.data ?: "Não informado"}"
                         categoriaView.text = "Categoria: ${item.categoria ?: "Não informado"}"
                         quantidadeView.text = "Quantidade: ${item.quantidade ?: 0}"
+                        autorView.text = "Autor(a): ${item.autor ?: "Não informado"}"
+                        editoraView.text = "Editora: ${item.editora ?: "Não informado"}"
+                        precoView.text = "Preço: R$ ${item.preco ?: 0.0}"
 
                         if (!item.imageUrl.isNullOrEmpty()) {
                             Glide.with(container.context).load(item.imageUrl).into(imageView)

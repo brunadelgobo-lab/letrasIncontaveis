@@ -1,5 +1,6 @@
 package com.ifpr.androidapptemplate.ui.dashboard
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.net.Uri
@@ -39,10 +40,15 @@ class DashboardFragment : Fragment() {
     private lateinit var selectImageButton: Button
     private lateinit var databaseReference: DatabaseReference
     private lateinit var auth: FirebaseAuth
+    private lateinit var tituloEditText: EditText
     private lateinit var descricaoEditText: EditText
     private lateinit var dataEditText: EditText
     private lateinit var categoriaEditText: EditText
     private lateinit var quantidadeEditText: EditText
+    private lateinit var autorEditText: EditText
+    private lateinit var editoraEditText: EditText
+    private lateinit var precoEditText: EditText
+
 
 
     companion object {
@@ -53,6 +59,7 @@ class DashboardFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
@@ -71,10 +78,15 @@ class DashboardFragment : Fragment() {
         salvarButton = view.findViewById(R.id.salvarItemButton)
         selectImageButton = view.findViewById(R.id.button_select_image)
         enderecoEditText = view.findViewById(R.id.enderecoItemEditText)
+        tituloEditText = view.findViewById(R.id.tituloItemEditText)
         descricaoEditText = view.findViewById(R.id.descricaoItemEditText)
         dataEditText = view.findViewById(R.id.dataItemEditText)
         categoriaEditText = view.findViewById(R.id.categoriaItemEditText)
         quantidadeEditText = view.findViewById(R.id.quantidadeItemEditText)
+        autorEditText = view.findViewById(R.id.autorItemEditText)
+        editoraEditText = view.findViewById(R.id.editoraItemEditText)
+        precoEditText = view.findViewById(R.id.precoItemEditText)
+
 
         //TODO("Capture aqui os outro campos que foram inseridos no layout. Por exemplo, ate
         // o momento so foi capturado o endereco (EditText)")
@@ -107,10 +119,15 @@ class DashboardFragment : Fragment() {
     private fun salvarItem() {
         //TODO("Capture aqui o conteudo que esta nos outros editTexts que foram criados")
         val endereco = enderecoEditText.text.toString().trim()
+        val titulo = tituloEditText.text.toString().trim()
         val descricao = descricaoEditText.text.toString().trim()
         val data = dataEditText.text.toString().trim()
         val categoria = categoriaEditText.text.toString().trim()
         val quantidade = quantidadeEditText.text.toString().trim().toIntOrNull()
+        val autor = autorEditText.text.toString().trim()
+        val editora = editoraEditText.text.toString().trim()
+        val preco = precoEditText.text.toString().trim().toDoubleOrNull()
+
 
 
         if (endereco.isEmpty() || imageUri == null) {
@@ -131,14 +148,19 @@ class DashboardFragment : Fragment() {
             if (bytes != null) {
                 val base64Image = Base64.encodeToString(bytes, Base64.DEFAULT)
                 val endereco = enderecoEditText.text.toString().trim()
+                val titulo = tituloEditText.text.toString().trim()
                 val descricao = descricaoEditText.text.toString().trim()
                 val data = dataEditText.text.toString().trim()
                 val categoria = categoriaEditText.text.toString().trim()
                 val quantidade = quantidadeEditText.text.toString().trim().toIntOrNull()
+                val autor = autorEditText.text.toString().trim()
+                val editora = editoraEditText.text.toString().trim()
+                val preco = precoEditText.text.toString().trim().toDoubleOrNull()
+
 
                 //TODO("Capture aqui o conteudo que esta nos outros editTexts que foram criados")
 
-                val item = Item(endereco, descricao, data, categoria, quantidade, base64Image)
+                val item = Item(endereco, titulo, descricao, data, categoria, quantidade, autor, editora, preco, base64Image)
 
                 saveItemIntoDatabase(item)
             }
